@@ -1,0 +1,36 @@
+@use "../../scss/" as *;
+
+.hero {
+	width: $webWidth;
+	margin: 0 auto;
+	position: relative;
+
+	.textHero {
+		width: 600px;
+
+		.title {
+			font-size: $titleSize;
+			margin: 100px 0 50px;
+		}
+
+		.subTitle {
+			font-size: $paragrafSize;
+			font-weight: $regularWeight;
+			margin-bottom: 50px;
+		}
+
+		.displayText {
+			font-size: 196px;
+			font-weight: $boldWeight;
+			opacity: 0.4;
+			position: absolute;
+			bottom: -400px;
+			left: 0;
+			z-index: -1;
+		}
+	}
+}
+
+// *:not(.hero) {
+// background-color: red;
+// }

@@ -1,0 +1,26 @@
+@use "../../scss/" as *;
+
+.navbar {
+	@include flex(center, space-between);
+	font-weight: $lightWeight;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	.logo {
+		width: 80px;
+	}
+
+	.banner {
+		position: absolute;
+		right: 0;
+		top: 0;
+		border-bottom-left-radius: 200px;
+		width: 700px;
+		height: 900px;
+		object-fit: cover;
+	}
+	.searchIcon {
+		stroke: white;
+		stroke-width: 5;
+		width: $btnSize;
+	}
+}

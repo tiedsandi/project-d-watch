@@ -10,11 +10,16 @@ $acntRedColor: #ee4111;
 // font
 $fontSerif: "Roboto Slab", serif;
 $fontSansSerif: "Roboto", sans-serif;
+
+$boldWeight: 700;
+$regularWeight: 400;
+$lightWeight: 300;
+$thinWeight: 100;
+
 $titleSize: 46px;
-$paragrafSize: 29px;
 $titleSekunderSize: 29px;
-$smallTextSize: 23px;
-$btnSize: 23px;
+$paragrafSize: 23px;
+$btnSize: 15px;
 $ratingSize: 15px;
 
 //shadow
@@ -25,5 +30,9 @@ $mediumRadius: 15px;
 $smallRadius: 10px;
 
 //width
+$webWidth: 1400px;
 $mobileWidth: 600px;
 $tabletWidth: 1024px;
+$gap-button: 5px;
+$gap-20: 20px;
+$storkeIcon: 6;

@@ -1,0 +1,48 @@
+@use "../../scss/" as *;
+
+.buttonContainer {
+	min-width: 165px;
+	background-color: $btnMainColor;
+	color: $txtColor;
+	border: none;
+	width: auto;
+	height: 50px;
+	letter-spacing: 0.5px;
+	line-height: 50px;
+	padding: 0 35px 0 35px;
+	font-size: $btnSize;
+	text-transform: uppercase;
+	font-weight: $boldWeight;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $txtColor;
+		color: $bodyBgColor;
+		border: 1px solid $bodyBgColor;
+	}
+
+	&.search {
+		width: max-content;
+		background-color: transparent;
+		@include flex(center, "");
+		gap: $gap-button;
+
+		&:hover {
+			background-color: $bodyBgColor;
+			color: $txtColor;
+			border: none;
+		}
+	}
+
+	&.inverted {
+		background-color: $txtColor;
+		color: $bodyBgColor;
+		border: 1px solid $bodyBgColor;
+
+		&:hover {
+			background-color: $bodyBgColor;
+			color: $txtColor;
+			border: none;
+		}
+	}
+}
