@@ -1,7 +1,7 @@
 @use "../../scss/" as *;
 
 .buttonContainer {
-	min-width: 165px;
+	min-width: 120px;
 	background-color: $btnMainColor;
 	color: $txtColor;
 	border: none;
@@ -9,8 +9,8 @@
 	height: 50px;
 	letter-spacing: 0.5px;
 	line-height: 50px;
-	padding: 0 35px 0 35px;
-	font-size: $btnSize;
+	padding: 0 35px;
+	font-size: $navSize;
 	text-transform: uppercase;
 	font-weight: $boldWeight;
 	cursor: pointer;
@@ -21,14 +21,23 @@
 		border: 1px solid $bodyBgColor;
 	}
 
+	@include tablet {
+		font-size: calc($navSize - 20%);
+		padding: 0 28px;
+	}
+
+	@include mobile {
+		font-size: calc($navSize - 30%);
+		padding: 0 20px;
+	}
+
 	&.search {
-		width: max-content;
+		font-weight: $regularWeight;
 		background-color: transparent;
 		@include flex(center, "");
 		gap: $gap-button;
 
 		&:hover {
-			background-color: $bodyBgColor;
 			color: $txtColor;
 			border: none;
 		}

@@ -16,11 +16,17 @@ $regularWeight: 400;
 $lightWeight: 300;
 $thinWeight: 100;
 
-$titleSize: 46px;
-$titleSekunderSize: 29px;
-$paragrafSize: 23px;
-$btnSize: 15px;
-$ratingSize: 15px;
+$H1Size: 32px; //web: 32px - 48px || mbl: 24px - 32px
+$h2Size: 24px; //web: 24px - 32px || mbl: 20px - 24px
+$bodySize: 18px; //web: 18px - 20px || mbl: 16px - 18px
+$smallSize: 14px; //web: 14px - 16px || mbl: 12px - 14px
+$linkSize: 16px; //web: 16px - 18px || mbl: 14px - 16px
+$navSize: 18px; //web: 18px - 20px || mbl: 16px - 18px
+// $titleSize: 32px;
+// $titleSekunderSize: 25px;
+// $paragrafSize: 18px;
+// $btnSize: 15px;
+// $ratingSize: 15px;
 
 //shadow
 
@@ -30,9 +36,9 @@ $mediumRadius: 15px;
 $smallRadius: 10px;
 
 //width
-$webWidth: 1400px;
-$mobileWidth: 600px;
-$tabletWidth: 1024px;
+$webWidth: 1024px;
+$mobileWidth: 425px;
+$tabletWidth: 820px;
 $gap-button: 5px;
 $gap-20: 20px;
 $storkeIcon: 6;

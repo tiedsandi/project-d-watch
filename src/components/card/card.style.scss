@@ -1,0 +1,56 @@
+@use "../../scss/" as *;
+.card {
+	position: relative;
+	color: white;
+	border-radius: 10px;
+	overflow: hidden;
+	height: 250px;
+
+	.cardImg {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		filter: brightness(0.7);
+	}
+
+	.wrapperCard {
+		position: absolute;
+		padding: 20px;
+		top: 0;
+
+		.cardRating {
+			font-size: $linkSize;
+			width: fit-content;
+			padding: 6px;
+			border-radius: 100%;
+			margin-bottom: 110px;
+
+			&.green {
+				border: 2px solid $acntGreenColor;
+			}
+
+			&.red {
+				border: 2px solid $acntRedColor;
+			}
+
+			&.yellow {
+				border: 2px solid $acntYellowColor;
+			}
+		}
+
+		.cardTitles {
+			h1 {
+				max-width: 400px;
+				font-size: $h2Size;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			h2 {
+				font-size: $bodySize;
+				font-weight: $regularWeight;
+			}
+		}
+	}
+}
