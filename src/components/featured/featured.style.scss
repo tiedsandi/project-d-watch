@@ -1,24 +1,35 @@
 @use "../../scss/" as *;
 
-.featuredContainer {
-	margin-top: 40px;
-	background-image: url("../../assets/imgs/img-bg.png");
-	overflow: hidden;
-	padding: 0 20px;
-	width: 100%;
-	height: 100%;
+.featured {
+	background-image: url(../../assets/imgs/img-bg.png);
+	padding: 80px 20px;
 
-	.featuredItem {
-		width: $webWidth;
+	// display: flex;
+	// flex-direction: column;
+	// gap: 40px;
+
+	@include tablet {
+	}
+	@include mobile {
+	}
+
+	.featuredMovie,
+	.featuredTv {
+		max-width: $webWidth;
 		margin: 0 auto;
-		padding: 60px 0;
-		font-size: $bodySize;
-		@include flex("", "");
-		flex-direction: column;
-		gap: 60px;
 
-		span {
-			font-weight: $thinWeight;
+		.titleFeatured {
+			font-size: $h2Size;
+			font-weight: $boldWeight;
+			margin-bottom: 20px;
+
+			span {
+				font-weight: $thinWeight;
+			}
 		}
+	}
+
+	.featuredMovie {
+		margin-bottom: 60px;
 	}
 }

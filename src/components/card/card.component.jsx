@@ -15,15 +15,14 @@ const Card = ({ data }) => {
 
 	return (
 		<div className="card">
-			<img src={bg} className="cardImg" />
+			<img src={bg} className="cardImg" alt="backdrop" />
 			<div className="wrapperCard">
 				<div className={`cardRating ${getRatingColor()}`}>
 					{rating.toFixed(1)}
 				</div>
-				<div className="cardTitles">
-					<h1>{name}</h1>
-					<h2>{year}</h2>
-				</div>
+
+				<h1>{name}</h1>
+				<h2>{year}</h2>
 			</div>
 		</div>
 	);

@@ -1,5 +1,5 @@
 import Card from "../card/card.component";
-import "./featuredList.style.scss";
+import "./featuredItem.style.scss";
 const playlist = [
 	{
 		id: 1,
@@ -21,19 +21,31 @@ const playlist = [
 		rating: 6.2,
 		name: "Shark",
 		year: "2000"
+	},
+	{
+		id: 4,
+		bg: "https://image.tmdb.org/t/p/original/nGxUxi3PfXDRm7Vg95VBNgNM8yc.jpg",
+		rating: 2,
+		name: "Shark",
+		year: "2000"
+	},
+	{
+		id: 5,
+		bg: "https://image.tmdb.org/t/p/original/6l1SV3CWkbbe0DcAK1lyOG8aZ4K.jpg",
+		rating: 6.2,
+		name: "Shark",
+		year: "2000"
 	}
 ];
 
-const FeaturedList = () => {
+const FeaturedItem = () => {
 	return (
-		<div className="FLContainer">
-			<div className="cardWrapper">
-				{playlist.map((play) => (
-					<Card key={play.id} data={play} />
-				))}
-			</div>
+		<div className="featuredItem">
+			{playlist.map((play) => (
+				<Card key={play.id} data={play} />
+			))}
 		</div>
 	);
 };
 
-export default FeaturedList;
+export default FeaturedItem;

@@ -1,0 +1,16 @@
+@use "../../scss/" as *;
+
+.featuredItem {
+	display: flex;
+	height: 184px;
+	gap: 20px;
+
+	overflow: auto;
+	overflow-y: hidden;
+	// @include tablet {
+	// 	height: 200px;
+	// }
+	@include mobile {
+		height: 158px;
+	}
+}

@@ -1,15 +1,13 @@
 @use "../../scss/" as *;
 .card {
+	object-fit: cover;
 	position: relative;
-	color: white;
 	border-radius: 10px;
-	overflow: hidden;
-	height: 250px;
 
 	.cardImg {
-		width: 100%;
 		height: 100%;
 		object-fit: cover;
+		border-radius: 20px;
 		filter: brightness(0.7);
 	}
 
@@ -17,13 +15,22 @@
 		position: absolute;
 		padding: 20px;
 		top: 0;
+		@include tablet {
+			padding: 15px;
+		}
+		@include mobile {
+			padding: 10px;
+		}
 
 		.cardRating {
-			font-size: $linkSize;
+			@include mobile {
+				padding: 4px;
+			}
+			font-size: $smallSize;
 			width: fit-content;
 			padding: 6px;
 			border-radius: 100%;
-			margin-bottom: 110px;
+			margin-bottom: 60px;
 
 			&.green {
 				border: 2px solid $acntGreenColor;
@@ -38,19 +45,26 @@
 			}
 		}
 
-		.cardTitles {
-			h1 {
-				max-width: 400px;
-				font-size: $h2Size;
-				white-space: nowrap;
-				overflow: hidden;
-				text-overflow: ellipsis;
+		h1 {
+			@include tablet {
 			}
-
-			h2 {
+			@include mobile {
+				max-width: 250px;
 				font-size: $bodySize;
-				font-weight: $regularWeight;
 			}
+			max-width: 280px;
+			font-size: $h2Size;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		h2 {
+			@include mobile {
+				font-size: $smallSize;
+			}
+			font-size: $bodySize;
+			font-weight: $regularWeight;
 		}
 	}
 }

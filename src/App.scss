@@ -8,4 +8,8 @@
 	box-sizing: border-box;
 	color: $txtColor;
 	font-family: $fontSansSerif;
+
+	::-webkit-scrollbar {
+		display: none;
+	}
 }

@@ -1,20 +1,23 @@
-import FeaturedList from "../featuredList/featuredList.component";
+import FeaturedItem from "../featuredItem/featuredItem.component";
 import "./featured.style.scss";
 
 const Featured = () => {
 	return (
-		<div className="featuredContainer">
-			<div className="featuredItem">
-				<div className="featuredMovie">
+		<div className="featured">
+			<div className="featuredMovie">
+				<p className="titleFeatured">
 					Movie <span>/ now playing</span>
-					<FeaturedList />
-				</div>
-				<div className="featuredTv">
+				</p>
+				<FeaturedItem />
+			</div>
+			<div className="featuredTv">
+				<p className="titleFeatured">
 					TV <span>/ now playing</span>
-					<FeaturedList />
-				</div>
+				</p>
+				<FeaturedItem />
 			</div>
 		</div>
+		// </div>
 	);
 };
 
