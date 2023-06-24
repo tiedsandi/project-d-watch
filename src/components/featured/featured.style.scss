@@ -2,16 +2,17 @@
 
 .featured {
 	background-image: url(../../assets/imgs/img-bg.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 	padding: 80px 20px;
+	@include mobile {
+		padding: 40px 20px;
+	}
 
 	// display: flex;
 	// flex-direction: column;
 	// gap: 40px;
-
-	@include tablet {
-	}
-	@include mobile {
-	}
 
 	.featuredMovie,
 	.featuredTv {
@@ -22,6 +23,9 @@
 			font-size: $h2Size;
 			font-weight: $boldWeight;
 			margin-bottom: 20px;
+			@include tablet {
+				font-size: $bodySize;
+			}
 
 			span {
 				font-weight: $thinWeight;
