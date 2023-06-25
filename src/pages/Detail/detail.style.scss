@@ -1,0 +1,109 @@
+@use "../../scss/" as *;
+
+.detail-container {
+	position: relative;
+	background-position: 50% 50%;
+	background-size: cover;
+	border: 1px none;
+	height: 100vh;
+	overflow: auto;
+}
+
+.detail-overlay {
+	background: radial-gradient(
+		50% 50% at 50% 50%,
+		rgba(0, 0, 0, 0) 0%,
+		rgba(23.31, 23.31, 23.31, 0.85) 100%
+	);
+	height: inherit;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	padding: 5% 10%;
+
+	@include mobile {
+		background: rgba($bodyBgColor, 0.6);
+		padding: 5% 8%;
+	}
+
+	@media (orientation: landscape) {
+		// height: max-content;
+		max-height: max-content;
+		overflow-y: scroll;
+		padding: 1% 8%;
+	}
+
+	.back-button {
+		width: 3.2%;
+
+		@include mobile {
+			width: 10%;
+		}
+	}
+
+	.detail-info {
+		display: grid;
+		grid-gap: 20px;
+
+		.detail-group {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			&.right {
+				justify-self: end;
+			}
+
+			&.left {
+				justify-self: start;
+			}
+
+			.detail-heading {
+				font-size: $h2Size;
+				font-weight: $thinWeight;
+
+				@include mobile {
+					font-size: $bodySize;
+				}
+			}
+
+			.detail-subheading {
+				font-size: $H1Size;
+				font-weight: $boldWeight;
+
+				@include mobile {
+					font-size: $h2Size;
+				}
+			}
+		}
+	}
+
+	.detail-title {
+		text-align: center;
+		max-width: 900px;
+		margin: 0 auto;
+
+		h1 {
+			font-size: $H1Size;
+			margin-bottom: 20px;
+		}
+
+		p {
+			font-size: $bodySize;
+			font-weight: $lightWeight;
+			max-height: max-content; /* Contoh tinggi maksimal yang ditentukan */
+			overflow-y: auto;
+		}
+
+		@include mobile {
+			h1 {
+				margin-bottom: 10px;
+				font-size: $h2Size;
+			}
+
+			p {
+				font-size: $smallSize;
+			}
+		}
+	}
+}

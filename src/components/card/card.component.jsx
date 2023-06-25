@@ -1,7 +1,7 @@
 import "./card.style.scss";
 
 const Card = ({ data }) => {
-	const { bg, rating, name, year } = data;
+	const { bg, rating, name, year, id } = data;
 
 	const getRatingColor = () => {
 		if (rating < 5) {
@@ -14,7 +14,7 @@ const Card = ({ data }) => {
 	};
 
 	return (
-		<div className="card">
+		<a href={`/${id}`} className="card">
 			<img src={bg} className="cardImg" alt="backdrop" />
 			<div className="wrapperCard">
 				<div className={`cardRating ${getRatingColor()}`}>
@@ -24,7 +24,7 @@ const Card = ({ data }) => {
 				<h1>{name}</h1>
 				<h2>{year}</h2>
 			</div>
-		</div>
+		</a>
 	);
 };
 

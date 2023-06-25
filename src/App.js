@@ -2,7 +2,7 @@ import {
 	createBrowserRouter,
 	Route,
 	RouterProvider,
-	Routes
+	Routes,
 } from "react-router-dom";
 
 import Home from "./pages/Home/home.component";
@@ -22,7 +22,7 @@ function Root() {
 		<Routes>
 			<Route path="/" element={<Home />} />
 			<Route path="/list" element={<List />} />
-			<Route path="/list/:id" element={<Detail />} />
+			<Route path="/:id" element={<Detail />} />
 		</Routes>
 	);
 }
