@@ -9,7 +9,7 @@ const List = () => {
 	return (
 		<div className="list">
 			<Navbar center={true} />
-			<div className="contentList">
+			<div className="wrapper-list">
 				<Filter />
 				<ContentList />
 				<Pagination />

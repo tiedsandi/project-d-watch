@@ -1,6 +1,7 @@
 @use "../../scss/" as *;
 .filter {
 	text-align: center;
+	margin: 30px 0;
 
 	.filterList {
 		@include flex(center, center);
@@ -9,14 +10,14 @@
 
 		#btnFilter {
 			border-radius: 10px;
-			font-size: $navSize;
+			font-size: $smallSize;
 			height: 40px;
 			padding: 0 30px;
 			line-height: 0px;
 			letter-spacing: 2 px;
 
 			.filterIcon {
-				width: 20px;
+				width: 16px;
 			}
 		}
 	}
