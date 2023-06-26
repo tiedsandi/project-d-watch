@@ -1,0 +1,23 @@
+@use "../../scss/" as *;
+.filter {
+	text-align: center;
+
+	.filterList {
+		@include flex(center, center);
+		gap: 20px;
+		margin-top: 10px;
+
+		#btnFilter {
+			border-radius: 10px;
+			font-size: $navSize;
+			height: 40px;
+			padding: 0 30px;
+			line-height: 0px;
+			letter-spacing: 2 px;
+
+			.filterIcon {
+				width: 20px;
+			}
+		}
+	}
+}

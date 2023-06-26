@@ -2,6 +2,8 @@
 
 .navbar {
 	font-weight: $lightWeight;
+	max-width: $webWidth;
+	margin: 0 auto;
 
 	.navigation {
 		@include flex(center, space-between);

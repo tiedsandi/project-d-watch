@@ -1,0 +1,16 @@
+@use "../../scss/" as *;
+
+.list {
+	background-color: $bodyBgColor;
+	color: $txtColor;
+
+	.contentList {
+		max-width: $webWidth;
+		margin: 0 auto;
+		padding: 0 20px;
+
+		@include mobile {
+			padding: 0 10px;
+		}
+	}
+}

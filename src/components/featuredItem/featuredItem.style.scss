@@ -7,9 +7,7 @@
 
 	overflow: auto;
 	overflow-y: hidden;
-	// @include tablet {
-	// 	height: 200px;
-	// }
+
 	@include mobile {
 		height: 158px;
 	}

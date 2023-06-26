@@ -6,6 +6,7 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding: 80px 20px;
+
 	@include mobile {
 		padding: 40px 20px;
 	}

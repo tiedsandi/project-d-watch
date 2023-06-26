@@ -2,7 +2,7 @@ import "./button.style.scss";
 
 const BUTTON_TYPE_CLASSES = {
 	search: "search",
-	inverted: "inverted"
+	inverted: "inverted",
 };
 
 const Button = ({ children, buttonType, ...otherProps }) => (

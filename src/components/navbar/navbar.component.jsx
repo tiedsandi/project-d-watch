@@ -4,9 +4,12 @@ import { ReactComponent as Lup } from "../../assets/icons/Search.svg";
 import Button from "../button/button.component";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ center }) => {
 	return (
-		<div className="navbar">
+		<div
+			className="navbar"
+			style={center ? { margin: "0 auto" } : { margin: 0 }}
+		>
 			<div className="navigation">
 				<Link to={"/"}>
 					<Logo className="logo" />

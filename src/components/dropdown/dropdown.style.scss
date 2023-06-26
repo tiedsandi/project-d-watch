@@ -1,0 +1,76 @@
+@use "../../scss/" as *;
+
+.dropdown {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	position: relative;
+
+	label {
+		font-size: $smallSize;
+		// text-transform: uppercase;
+		font-weight: $boldWeight;
+
+		color: $txtColor;
+		padding: 0 20px;
+		position: absolute;
+		top: 6px;
+	}
+
+	select {
+		background-color: #333333;
+		color: $txtColor;
+		border-radius: 5px;
+		appearance: none;
+		padding: 12px 28px 2px 20px;
+		cursor: pointer;
+		border: 0px;
+
+		height: 60px;
+		// width: ;
+		font-size: 16px;
+		font-weight: $lightWeight;
+
+		&:focus {
+			outline: none;
+			// background-color: rgba($acntRedColor, 1);
+		}
+
+		&::-ms-expand {
+			display: none;
+		}
+	}
+	option {
+		background-color: #333333;
+		color: $txtColor;
+
+		&:hover {
+			background-color: rgb(80, 136, 84); /* Color on hover */
+			color: black;
+		}
+
+		&:checked,
+		&:checked:hover {
+			background-color: $acntRedColor; /* Color for selected option */
+		}
+	}
+
+	label {
+		display: block;
+		color: white;
+		margin-bottom: 5px;
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		top: calc(50% + 4px);
+		right: 9px;
+		width: 0;
+		height: 0;
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		border-top: 4px solid white;
+		pointer-events: none;
+	}
+}
