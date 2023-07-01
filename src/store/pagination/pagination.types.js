@@ -1,0 +1,5 @@
+export const PAGINATION_ACTION_TYPES = {
+	SET_CURRENT_PAGE: "pagination/SET_CURRENT_PAGE",
+	SET_TOTAL_PAGES: "pagination/SET_TOTAL_PAGES",
+	SET_PAGE_SIZE: "pagination/SET_PAGE_SIZE",
+};

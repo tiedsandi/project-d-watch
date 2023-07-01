@@ -23,6 +23,11 @@ const movieList = {
 			title: "Extraction 2",
 			img: "https://image.tmdb.org/t/p/original/fiVW06jE7z9YnO4trhaMEdclSiC.jpg",
 		},
+		{
+			id: 4,
+			title: "Extraction 2",
+			img: "https://image.tmdb.org/t/p/original/fiVW06jE7z9YnO4trhaMEdclSiC.jpg",
+		},
 	],
 	totalPage: 4,
 };

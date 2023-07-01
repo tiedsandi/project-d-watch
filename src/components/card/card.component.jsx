@@ -1,12 +1,20 @@
 import "./card.style.scss";
 
 const Card = ({ data }) => {
-	const { bg, rating, name, year, id } = data;
+	const {
+		backdrop_path,
+		vote_average,
+		title,
+		release_date,
+		name,
+		first_air_date,
+		id,
+	} = data;
 
 	const getRatingColor = () => {
-		if (rating < 5) {
+		if (vote_average < 5) {
 			return "red";
-		} else if (rating < 8) {
+		} else if (vote_average < 8) {
 			return "yellow";
 		} else {
 			return "green";
@@ -15,14 +23,18 @@ const Card = ({ data }) => {
 
 	return (
 		<a href={`/${id}`} className="card">
-			<img src={bg} className="cardImg" alt="backdrop" />
+			<img
+				src={"https://image.tmdb.org/t/p/original" + backdrop_path}
+				className="cardImg"
+				alt="backdrop"
+			/>
 			<div className="wrapperCard">
 				<div className={`cardRating ${getRatingColor()}`}>
-					{rating.toFixed(1)}
+					{vote_average.toFixed(1)}
 				</div>
 
-				<h1>{name}</h1>
-				<h2>{year}</h2>
+				<h1>{title || name}</h1>
+				<h2>{release_date || first_air_date}</h2>
 			</div>
 		</a>
 	);

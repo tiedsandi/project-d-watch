@@ -1,1 +1,33 @@
 @use "../../scss/" as *;
+
+.Home {
+	background: white;
+	color: black;
+	padding: 20px;
+}
+
+.pagination-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.pagination-button {
+	padding: 8px 12px;
+	margin: 0 4px;
+	border: none;
+	background: lightgray;
+	color: black;
+	cursor: pointer;
+}
+
+.pagination-button.active {
+	background: gray;
+	color: white;
+}
+
+.pagination-button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}

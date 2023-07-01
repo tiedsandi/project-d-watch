@@ -1,0 +1,5 @@
+export const TV_ACTION_TYPES = {
+	FETCH_TV_START: "tvserial/FETCH_TV_START",
+	FETCH_TV_SUCCESS: "tvserial/FETCH_TV_SUCCESS",
+	FETCH_TV_FAILED: "tvserial/FETCH_TV_FAILED",
+};
