@@ -5,6 +5,7 @@ import Button from "../button/button.component";
 import { Link } from "react-router-dom";
 
 const Navbar = ({ center }) => {
+	const searchResult = () => {};
 	return (
 		<div
 			className="navbar"
@@ -14,7 +15,7 @@ const Navbar = ({ center }) => {
 				<Link to={"/"}>
 					<Logo className="logo" />
 				</Link>
-				<Button buttonType="search" onClick={""}>
+				<Button buttonType="search" onClick={searchResult}>
 					<Lup className="searchIcon " />
 					Search
 				</Button>

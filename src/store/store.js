@@ -9,6 +9,7 @@ import { rootReducer } from "./root-reducer";
 const middleWares = [
 	process.env.NODE_ENV === "development" && logger,
 	thunk,
+	// process.env.NODE_ENV === "development" && thunk,
 ].filter(Boolean);
 
 const composeEnhancer =

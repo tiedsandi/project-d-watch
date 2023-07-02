@@ -14,6 +14,10 @@ const detailMovie = {
 };
 
 const Detail = () => {
+	/* @audit-info 
+		- get api
+		- buat api store
+	*/
 	const navigate = useNavigate();
 
 	const goBack = () => {

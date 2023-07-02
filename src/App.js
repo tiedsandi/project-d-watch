@@ -18,6 +18,7 @@ const App = () => {
 };
 
 function Root() {
+	// @audit-info pagination, search, detail, list
 	return (
 		<Routes>
 			<Route path="/" element={<Home />} />

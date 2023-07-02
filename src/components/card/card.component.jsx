@@ -1,5 +1,5 @@
 import "./card.style.scss";
-
+import ImgDefault from "../../assets/imgs/img-bg.png";
 const Card = ({ data }) => {
 	const {
 		backdrop_path,
@@ -24,7 +24,11 @@ const Card = ({ data }) => {
 	return (
 		<a href={`/${id}`} className="card">
 			<img
-				src={"https://image.tmdb.org/t/p/original" + backdrop_path}
+				src={
+					backdrop_path
+						? "https://image.tmdb.org/t/p/original" + backdrop_path
+						: ImgDefault
+				}
 				className="cardImg"
 				alt="backdrop"
 			/>

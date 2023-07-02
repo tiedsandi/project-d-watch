@@ -1,13 +1,11 @@
 import { useSelector } from "react-redux";
 import FeaturedItem from "../featuredItem/featuredItem.component";
 import "./featured.style.scss";
-import { allMovies } from "../../store/movie/movie.selector";
-import { allTv } from "../../store/tvserial/tvserial.selector";
+import { movieData, tvData } from "../../store/dataApi/dataApi.selector";
 
 const Featured = () => {
-	const movies = useSelector(allMovies);
-	const tv = useSelector(allTv);
-	// @audit loading error
+	const movies = useSelector(movieData);
+	const tv = useSelector(tvData);
 
 	return (
 		<div className="featured">
@@ -19,7 +17,7 @@ const Featured = () => {
 			</div>
 			<div className="featuredTv">
 				<p className="titleFeatured">
-					TV <span>/ now playing</span>
+					TV <span>/ on the air</span>
 				</p>
 				<FeaturedItem datas={tv} />
 			</div>

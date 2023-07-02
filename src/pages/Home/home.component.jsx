@@ -4,14 +4,16 @@ import Featured from "../../components/featured/featured.component";
 import Footer from "../../components/footer/footer.component";
 import "./home.style.scss";
 import { useDispatch } from "react-redux";
-import { fetchMoviesStartAsync } from "../../store/movie/movie.action";
-import { fetchTvStartAsync } from "../../store/tvserial/tvserial.action";
+import {
+	fetchMovieStartAsyncs,
+	fetchTvStartAsyncs,
+} from "../../store/dataApi/dataApi.action";
 
 const Home = () => {
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(fetchMoviesStartAsync(1, "Now Playing"));
-		dispatch(fetchTvStartAsync(1, "Airing Today"));
+		dispatch(fetchMovieStartAsyncs());
+		dispatch(fetchTvStartAsyncs());
 	});
 	return (
 		<div className="home">
