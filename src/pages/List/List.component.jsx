@@ -1,5 +1,6 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 
 import ContentList from "../../components/contentList/contentList.component";
 import Filter from "../../components/filter/filter.component";
@@ -9,28 +10,55 @@ import Pagination from "../../components/pagination/pagination.component";
 
 import "./list.style.scss";
 
-import { allData } from "../../store/dataApi/dataApi.selector";
 import { fetchDataStartAsync } from "../../store/dataApi/dataApi.action";
 
 const List = () => {
-	/* @audit-info 
-		- pindahin state filter ke list
-		- pagination
-		- genres
-	*/
+	const [selectedType, setSelectedType] = useState("");
+	const [selectedGenre, setSelectedGenre] = useState("");
+	const [selectedSort, setSelectedSort] = useState("");
+
 	const dispatch = useDispatch();
-	const datas = useSelector(allData);
+	const navigate = useNavigate();
+	const { filter } = useParams();
+
 	useEffect(() => {
-		if (datas.length === 0)
-			dispatch(fetchDataStartAsync("movie", 1, "Now Playing"));
-	});
+		const filterParams = filter.split("-");
+		const type = filterParams[0];
+		const genre = filterParams[1];
+		const sort = filterParams[2];
+		const page = parseInt(filterParams[3]);
+
+		setSelectedType(type);
+		setSelectedGenre(genre);
+		setSelectedSort(sort);
+
+		dispatch(fetchDataStartAsync(type, page, sort));
+	}, [filter]);
+
+	const handelFilterResult = () => {
+		dispatch(fetchDataStartAsync(selectedType, 1, selectedSort));
+		navigate(`/list/${selectedType}-${selectedGenre}-${selectedSort}-1`);
+	};
+
 	return (
 		<div className="list">
 			<Navbar center={true} />
 			<div className="wrapper-list">
-				<Filter />
+				<Filter
+					selectedType={selectedType}
+					setSelectedType={setSelectedType}
+					selectedGenre={selectedGenre}
+					setSelectedGenre={setSelectedGenre}
+					selectedSort={selectedSort}
+					setSelectedSort={setSelectedSort}
+					applyFilter={handelFilterResult}
+				/>
 				<ContentList />
-				<Pagination />
+				<Pagination
+					selectedType={selectedType}
+					selectedGenre={selectedGenre}
+					selectedSort={selectedSort}
+				/>
 			</div>
 			<Footer />
 		</div>

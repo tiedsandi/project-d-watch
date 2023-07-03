@@ -3,24 +3,24 @@ import Dropdown from "../dropdown/dropdown.component";
 import "./filter.style.scss";
 import Button from "../button/button.component";
 import { ReactComponent as FilterIcon } from "../../assets/icons/Filter.svg";
-import { useDispatch } from "react-redux";
-import { fetchDataStartAsync } from "../../store/dataApi/dataApi.action";
 
-const Filter = () => {
-	const dispatch = useDispatch();
-
+const Filter = ({
+	selectedType,
+	setSelectedType,
+	selectedGenre,
+	setSelectedGenre,
+	selectedSort,
+	setSelectedSort,
+	applyFilter,
+}) => {
 	const types = ["movie", "tv"];
 	const genres = ["Action", "Adventure", "Comedy", "Drama", "Fantasy"];
 	const sortMV = ["Popular", "Top rated", "Now Playing", "Upcoming"];
 	const sortTV = ["Popular", "Top rated", "On The Air", "Airing Today"];
 
-	const [selectedType, setSelectedType] = useState("movie");
-	const [selectedGenre, setSelectedGenre] = useState("");
-	const [selectedSort, setSelectedSort] = useState("Popular");
 	const [sortOptions, setSortOptions] = useState(sortMV);
 
 	useEffect(() => {
-		// Update opsi pada label "Sort" berdasarkan nilai jenis yang dipilih
 		if (selectedType === "movie") {
 			setSortOptions(sortMV);
 		} else if (selectedType === "tv") {
@@ -40,31 +40,33 @@ const Filter = () => {
 		setSelectedSort(sort);
 	};
 
-	const handelFilterResult = () => {
-		console.log(selectedGenre);
-		dispatch(fetchDataStartAsync(selectedType, 1, selectedSort));
-	};
-
 	return (
 		<div className="filter">
 			<h1>Filter Results</h1>
 			<div className="filterList">
-				<Dropdown label="Type" options={types} onSelect={handleTypeSelect} />
+				<Dropdown
+					label="Type"
+					options={types}
+					onSelect={handleTypeSelect}
+					selectedOption={selectedType}
+				/>
 
 				<Dropdown
 					label="Genre"
 					options={genres}
 					onSelect={handleGenreSelect}
 					isNull
+					selectedOption={selectedGenre}
 				/>
 
 				<Dropdown
 					label="Sort"
 					options={sortOptions}
 					onSelect={handleSortSelect}
+					selectedOption={selectedSort}
 				/>
 
-				<Button id="btnFilter" onClick={handelFilterResult}>
+				<Button id="btnFilter" onClick={applyFilter}>
 					<FilterIcon className="filterIcon" />
 					Filter
 				</Button>

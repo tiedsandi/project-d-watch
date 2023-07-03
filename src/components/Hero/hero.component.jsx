@@ -7,7 +7,13 @@ const Hero = () => {
 	const navigate = useNavigate();
 
 	const navigatePage = () => {
-		navigate("/list");
+		const defaultType = "movie";
+		const defaultGenre = "";
+		const defaultSort = "Popular";
+		const defaultPage = 1;
+
+		const filterUrl = `${defaultType}-${defaultGenre}-${defaultSort}-${defaultPage}`;
+		navigate(`/list/${filterUrl}`);
 	};
 
 	return (

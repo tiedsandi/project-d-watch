@@ -7,7 +7,7 @@ export const DATAS_INTIAL_STATE = {
 	isLoading: false,
 	error: null,
 	currentPage: 1,
-	totalPage: 100,
+	totalPage: 500,
 };
 
 export const datasReducer = (state = DATAS_INTIAL_STATE, action = {}) => {
@@ -20,12 +20,13 @@ export const datasReducer = (state = DATAS_INTIAL_STATE, action = {}) => {
 				isLoading: true,
 			};
 		case DATA_API_ACTION_TYPES.FETCH_DATAS_SUCCESS:
+			let pages = Math.min(payload.data.total_pages, 500);
 			return {
 				...state,
 				isLoading: false,
 				data: payload.data.results,
 				currentPage: payload.data.page,
-				totalPage: payload.data.total_pages,
+				totalPage: pages,
 			};
 		case DATA_API_ACTION_TYPES.FETCH_MOVIE_SUCCESS:
 			return {
