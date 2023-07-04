@@ -11,7 +11,7 @@ const Dropdown = ({ label, options, onSelect, isNull, selectedOption }) => {
 		<div className="dropdown">
 			<label>{label}</label>
 			<select onChange={handleSelect} value={selectedOption}>
-				{isNull && <option value="">All {label}</option>}
+				{isNull && <option value="All">All {label}</option>}
 				{options.map((option) => (
 					<option key={option} value={option}>
 						{option}

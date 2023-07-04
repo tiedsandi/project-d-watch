@@ -5,12 +5,12 @@ import { allData } from "../../store/dataApi/dataApi.selector";
 
 import ImgDefault from "../../assets/imgs/img-hero.jpg";
 
-const ContentList = () => {
+const ContentList = ({ type }) => {
 	const movies = useSelector(allData);
 	return (
 		<div className="contentList">
 			{movies.map((movie) => (
-				<Link to={`/${movie.id}`} className="list" key={movie.id}>
+				<Link to={`/${type}/${movie.id}`} className="list" key={movie.id}>
 					<img
 						src={
 							movie.poster_path

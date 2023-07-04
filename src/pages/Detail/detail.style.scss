@@ -2,8 +2,9 @@
 
 .detail-container {
 	position: relative;
-	background-position: 50% 50%;
+	background-position: 20% 50%;
 	background-size: cover;
+	// background-repeat: no-repeat;
 	border: 1px none;
 	height: 100vh;
 	overflow: auto;
@@ -35,6 +36,7 @@
 
 	.back-button {
 		width: 3.2%;
+		cursor: pointer;
 
 		@include mobile {
 			width: 10%;
@@ -43,7 +45,11 @@
 
 	.detail-info {
 		display: grid;
-		grid-gap: 20px;
+		// grid-gap: 20px;
+
+		@include mobile {
+			// grid-gap: 0px;
+		}
 
 		.detail-group {
 			display: flex;
@@ -83,6 +89,7 @@
 		text-align: center;
 		max-width: 900px;
 		margin: 0 auto;
+		align-self: flex-end;
 
 		h1 {
 			font-size: $H1Size;
@@ -92,8 +99,11 @@
 		p {
 			font-size: $bodySize;
 			font-weight: $lightWeight;
-			max-height: max-content; /* Contoh tinggi maksimal yang ditentukan */
+			// max-height: max-content; /* Contoh tinggi maksimal yang ditentukan */
 			overflow-y: auto;
+			width: 80%;
+			margin: 0 auto;
+			margin-bottom: 20px;
 		}
 
 		@include mobile {
@@ -104,6 +114,8 @@
 
 			p {
 				font-size: $smallSize;
+				margin-bottom: 0px;
+				width: 100%;
 			}
 		}
 	}

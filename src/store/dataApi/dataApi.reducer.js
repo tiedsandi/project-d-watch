@@ -5,6 +5,8 @@ export const DATAS_INTIAL_STATE = {
 	movies: [],
 	tv: [],
 	isLoading: false,
+	detail: {},
+	cast: [],
 	error: null,
 	currentPage: 1,
 	totalPage: 500,
@@ -14,7 +16,7 @@ export const datasReducer = (state = DATAS_INTIAL_STATE, action = {}) => {
 	const { type, payload } = action;
 
 	switch (type) {
-		case DATA_API_ACTION_TYPES.FETCH_DATAS_START:
+		case DATA_API_ACTION_TYPES.FETCH_START:
 			return {
 				...state,
 				isLoading: true,
@@ -41,7 +43,19 @@ export const datasReducer = (state = DATAS_INTIAL_STATE, action = {}) => {
 				isLoading: false,
 				tv: payload.tv.results,
 			};
-		case DATA_API_ACTION_TYPES.FETCH_DATAS_FAILED:
+		case DATA_API_ACTION_TYPES.FETCH_DETAIL_SUCCESS:
+			return {
+				...state,
+				isLoading: false,
+				detail: payload.detail,
+			};
+		case DATA_API_ACTION_TYPES.FETCH_CAST_SUCCESS:
+			return {
+				...state,
+				isLoading: false,
+				cast: payload.cast.crew,
+			};
+		case DATA_API_ACTION_TYPES.FETCH_FAILED:
 			return {
 				...state,
 				isLoading: false,

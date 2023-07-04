@@ -8,7 +8,7 @@ const Hero = () => {
 
 	const navigatePage = () => {
 		const defaultType = "movie";
-		const defaultGenre = "";
+		const defaultGenre = "All";
 		const defaultSort = "Popular";
 		const defaultPage = 1;
 

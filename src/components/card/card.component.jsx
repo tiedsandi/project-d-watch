@@ -1,6 +1,6 @@
 import "./card.style.scss";
 import ImgDefault from "../../assets/imgs/img-bg.png";
-const Card = ({ data }) => {
+const Card = ({ data, type }) => {
 	const {
 		backdrop_path,
 		vote_average,
@@ -22,7 +22,7 @@ const Card = ({ data }) => {
 	};
 
 	return (
-		<a href={`/${id}`} className="card">
+		<a href={`/${type}/${id}`} className="card">
 			<img
 				src={
 					backdrop_path

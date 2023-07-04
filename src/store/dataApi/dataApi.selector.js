@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
 
-const selectDatas = (state) => state.datas;
+const selectDatas = (state) => state.data;
 
 export const allData = createSelector([selectDatas], (data) => data.data);
 
@@ -10,6 +10,16 @@ export const movieData = createSelector([selectDatas], (data) =>
 
 export const tvData = createSelector([selectDatas], (data) =>
 	data.tv.slice(0, 5)
+);
+
+export const detailData = createSelector([selectDatas], (data) => data.detail);
+
+export const writerArr = createSelector([selectDatas], (data) =>
+	data.cast.filter((crew) => crew.known_for_department === "Writing")
+);
+
+export const directingArr = createSelector([selectDatas], (data) =>
+	data.cast.filter((crew) => crew.known_for_department === "Directing")
 );
 
 export const pageData = createSelector(

@@ -53,7 +53,7 @@ const List = () => {
 					setSelectedSort={setSelectedSort}
 					applyFilter={handelFilterResult}
 				/>
-				<ContentList />
+				<ContentList type={selectedType} />
 				<Pagination
 					selectedType={selectedType}
 					selectedGenre={selectedGenre}

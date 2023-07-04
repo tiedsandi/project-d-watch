@@ -3,7 +3,7 @@ import {
 	Route,
 	RouterProvider,
 	Routes,
-	useParams,
+	// useParams,
 } from "react-router-dom";
 
 import Home from "./pages/Home/home.component";
@@ -15,6 +15,7 @@ import "./App.scss";
 const router = createBrowserRouter([
 	{ path: "*", Component: Root },
 	{ path: "/list/:filter", Component: FilteredList },
+	{ path: "/:type/:id", Component: IdDetails },
 ]);
 
 const App = () => {
@@ -24,31 +25,39 @@ const App = () => {
 function Root() {
 	/* @audit-info :
 		- search kaya shinigami.id
-		- detail
+			- searchnya pake quarey search
+		- list
+			- genre filter
 	*/
 	return (
 		<Routes>
 			<Route path="/" element={<Home />} />
-			<Route path="/list/:filter?" element={<List />} />
-			<Route path="/:id" element={<Detail />} />
+			{/* <Route path="/list/" element={<List />} /> */}
+			{/* <Route path="/:id" element={<Detail />} /> */}
 		</Routes>
 	);
 }
 
 function FilteredList() {
-	const { filter } = useParams();
+	// const { filter } = useParams();
 
 	// Extract filter options from the dynamic path
-	const [selectedType, selectedGenre, selectedSort, page] = filter.split("-");
+	// const [selectedType, selectedGenre, selectedSort, page] = filter.split("-");
 
 	return (
 		<List
-			selectedType={selectedType}
-			selectedGenre={selectedGenre}
-			selectedSort={selectedSort}
-			currentPage={Number(page)}
+		// selectedType={selectedType}
+		// selectedGenre={selectedGenre}
+		// selectedSort={selectedSort}
+		// currentPage={Number(page)}
 		/>
 	);
+}
+
+function IdDetails() {
+	// const { type, id } = useParams();
+
+	return <Detail />;
 }
 
 export default App;

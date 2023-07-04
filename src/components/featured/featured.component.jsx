@@ -13,13 +13,13 @@ const Featured = () => {
 				<p className="titleFeatured">
 					Movie <span>/ now playing</span>
 				</p>
-				<FeaturedItem datas={movies} />
+				<FeaturedItem datas={movies} type={"movie"} />
 			</div>
 			<div className="featuredTv">
 				<p className="titleFeatured">
 					TV <span>/ on the air</span>
 				</p>
-				<FeaturedItem datas={tv} />
+				<FeaturedItem datas={tv} type={"tv"} />
 			</div>
 		</div>
 	);
