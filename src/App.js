@@ -28,6 +28,8 @@ function Root() {
 			- searchnya pake quarey search
 		- list
 			- genre filter
+		-img
+			- cari image default landscape dan potrait
 	*/
 	return (
 		<Routes>

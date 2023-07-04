@@ -7,9 +7,11 @@
 	overflow: hidden;
 	display: grid;
 	grid: repeat(2, auto auto) / repeat(2, 1fr);
+	gap: 20px;
 
 	@include tablet {
 		grid: repeat(2, auto auto) / repeat(2, 1fr);
+		gap: 10px;
 	}
 	@include mobile {
 		padding: 0 20px;

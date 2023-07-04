@@ -11,16 +11,6 @@ import {
 	writerArr,
 } from "../../store/dataApi/dataApi.selector";
 
-const detailMovie = {
-	bg: "https://image.tmdb.org/t/p/original/9n2tJBplPbgR2ca05hS5CKXwP2c.jpg",
-	overview:
-		"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam laboriosam nulla, fuga sequi, accusantium assumenda maiores non exercitationem illo voluptates rerum dolores velit repellat quasi excepturi consectetur. Facere, voluptate soluta.",
-	genre: "Adventure",
-	directory: "Billy Onko",
-	writer: "BlackHole",
-	title: "Black Demon",
-};
-
 const Detail = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
@@ -30,7 +20,7 @@ const Detail = () => {
 	const detail = useSelector(detailData);
 	const writer = useSelector(writerArr);
 	const directing = useSelector(directingArr);
-	console.log(detail);
+	// console.log(detail);
 
 	useEffect(() => {
 		dispatch(fetchDetailStartAsyncs(type, id));
