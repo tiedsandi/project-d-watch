@@ -50,9 +50,13 @@ const Filter = ({
 		if (selectedType === "movie") {
 			setSortOptions(sortMV);
 			setGenresOptions(genresMV);
+			setSelectedSort(sortMV[0]);
+			setSelectedGenre(genresMV[0]);
 		} else if (selectedType === "tv") {
 			setSortOptions(sortTV);
 			setGenresOptions(genresTV);
+			setSelectedSort(sortTV[0]);
+			setSelectedGenre(genresTV[0]);
 		}
 	}, [selectedType]);
 
