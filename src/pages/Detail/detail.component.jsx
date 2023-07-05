@@ -56,19 +56,21 @@ const Detail = () => {
 							<div className="detail-group right">
 								<h2 className="detail-heading">Directing</h2>
 								<h3 className="detail-subheading">
-									{directing.length > 0 ? directing[0].name : "-"}
+									{directing && directing.length > 0 ? directing[0].name : "-"}
 								</h3>
 							</div>
 							<div className="detail-group left">
 								<h2 className="detail-heading">Genre</h2>
 								<h3 className="detail-subheading">
-									{detail.genres.length !== 0 ? detail.genres[0].name : "-"}
+									{detail && detail.genres.length > 0
+										? detail.genres[0].name
+										: "-"}
 								</h3>
 							</div>
 							<div className="detail-group right">
 								<h2 className="detail-heading">Writer</h2>
 								<h3 className="detail-subheading">
-									{writer.length > 0 ? writer[0].name : "-"}
+									{writer && writer.length > 0 ? writer[0].name : "-"}
 								</h3>
 							</div>
 							<div className="detail-title">
