@@ -61,9 +61,9 @@ const Detail = () => {
 						<div className="detail-info">
 							<div className="detail-group right">
 								<h2 className="detail-heading">Directing</h2>
-								<h3 className="detail-subheading">
-									{directing && directing.length > 0 ? directing[0].name : "-"}
-								</h3>
+								{directing && directing.length > 0 && (
+									<h3 className="detail-subheading">{directing[0].name}</h3>
+								)}
 							</div>
 							<div className="detail-group left">
 								<h2 className="detail-heading">Genre</h2>
@@ -73,9 +73,9 @@ const Detail = () => {
 							</div>
 							<div className="detail-group right">
 								<h2 className="detail-heading">Writer</h2>
-								<h3 className="detail-subheading">
-									{writer && writer.length > 0 ? writer[0].name : "-"}
-								</h3>
+								{writer && writer.length > 0 && (
+									<h3 className="detail-subheading">{writer[0].name}</h3>
+								)}
 							</div>
 							<div className="detail-title">
 								<h1>

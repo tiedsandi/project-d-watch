@@ -87,22 +87,32 @@ export const fetchDataStartAsync = (type, page, sort, genres) => {
 	let genreIds = 0;
 	switch (genres) {
 		case "Action & Adventure":
-			genreIds = 10759;
+			if (type === "tv") {
+				genreIds = 10759;
+			} else genreIds = "";
 			break;
 		case "Crime":
 			genreIds = 80;
 			break;
 		case "Kids":
-			genreIds = 10762;
+			if (type === "tv") {
+				genreIds = 10762;
+			} else genreIds = "";
 			break;
 		case "Reality":
-			genreIds = 10764;
+			if (type === "tv") {
+				genreIds = 10764;
+			} else genreIds = "";
 			break;
 		case "Sci-Fi & Fantasy":
-			genreIds = 10765;
+			if (type === "tv") {
+				genreIds = 10765;
+			} else genreIds = "";
 			break;
 		case "War & Politic":
-			genreIds = 10768;
+			if (type === "tv") {
+				genreIds = 10768;
+			} else genreIds = "";
 			break;
 		case "Action":
 			genreIds = 28;
