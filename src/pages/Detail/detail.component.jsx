@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ReactComponent as BackIcon } from "../../assets/icons/back.svg";
 import "./detail.style.scss";
 import { useNavigate, useParams } from "react-router-dom";
@@ -32,13 +32,17 @@ const Detail = () => {
 		navigate(-1);
 	};
 
+	const [imageLoaded, setImageLoaded] = useState(false);
+
+	const handleImageLoad = () => {
+		setImageLoaded(true);
+	};
 	return (
 		<>
-			{isLoadingDetail ? (
+			{isLoadingDetail && !imageLoaded ? (
 				<LoadingSection />
 			) : (
 				<div
-					className="detail-container"
 					style={{
 						backgroundImage: `url(${
 							detail.backdrop_path
@@ -46,6 +50,8 @@ const Detail = () => {
 								: ImgDefault
 						})`,
 					}}
+					className="detail-container"
+					onLoad={handleImageLoad}
 				>
 					<div className="detail-overlay">
 						<div onClick={goBack}>

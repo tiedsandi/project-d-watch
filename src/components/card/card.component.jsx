@@ -1,5 +1,6 @@
 import "./card.style.scss";
 import ImgDefault from "../../assets/imgs/img-bg.png";
+import { useState } from "react";
 const Card = ({ data, type }) => {
 	const {
 		backdrop_path,
@@ -10,6 +11,12 @@ const Card = ({ data, type }) => {
 		first_air_date,
 		id,
 	} = data;
+
+	const [imageLoaded, setImageLoaded] = useState(false);
+
+	const handleImageLoad = () => {
+		setImageLoaded(true);
+	};
 
 	const getRatingColor = () => {
 		if (vote_average < 5) {
@@ -29,8 +36,9 @@ const Card = ({ data, type }) => {
 						? "https://image.tmdb.org/t/p/original" + backdrop_path
 						: ImgDefault
 				}
-				className="cardImg"
 				alt="backdrop"
+				className={`cardImg ${imageLoaded ? "imgLoaded" : "imgLoading"}`}
+				onLoad={handleImageLoad}
 			/>
 			<div className="wrapperCard">
 				<div className={`cardRating ${getRatingColor()}`}>

@@ -24,6 +24,12 @@ const List = () => {
 	const navigate = useNavigate();
 	const { filter } = useParams();
 
+	const [imageLoaded, setImageLoaded] = useState(false);
+
+	const handleImageLoad = () => {
+		setImageLoaded(true);
+	};
+
 	useEffect(() => {
 		const filterParams = filter.split("-");
 		const type = filterParams[0];
@@ -56,10 +62,10 @@ const List = () => {
 					setSelectedSort={setSelectedSort}
 					applyFilter={handelFilterResult}
 				/>
-				{isLoadingData ? (
+				{isLoadingData && !imageLoaded ? (
 					<LoadingSection />
 				) : (
-					<ContentList type={selectedType} />
+					<ContentList type={selectedType} onLoad={handleImageLoad} />
 				)}
 
 				<Pagination
