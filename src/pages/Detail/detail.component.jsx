@@ -38,6 +38,8 @@ const Detail = () => {
 			{isLoading ? (
 				<LoadingSection />
 			) : (
+				// <>
+				// 	{detail && writer && directing && (
 				<div
 					className="detail-container"
 					style={{
@@ -56,18 +58,20 @@ const Detail = () => {
 							<div className="detail-group right">
 								<h2 className="detail-heading">Directing</h2>
 								<h3 className="detail-subheading">
-									{directing[0].name || "-"}
+									{directing.length > 0 ? directing[0].name : "-"}
 								</h3>
 							</div>
 							<div className="detail-group left">
 								<h2 className="detail-heading">Genre</h2>
 								<h3 className="detail-subheading">
-									{detail.genres[0].name || "-"}
+									{detail.genres.length > 0 ? detail.genres[0].name : "-"}
 								</h3>
 							</div>
 							<div className="detail-group right">
 								<h2 className="detail-heading">Writer</h2>
-								<h3 className="detail-subheading">{writer[0].name || "-"}</h3>
+								<h3 className="detail-subheading">
+									{writer.length > 0 ? writer[0].name : "-"}
+								</h3>
 							</div>
 							<div className="detail-title">
 								<h1>
@@ -83,6 +87,8 @@ const Detail = () => {
 					</div>
 				</div>
 			)}
+			{/* </>
+			)} */}
 		</>
 	);
 };

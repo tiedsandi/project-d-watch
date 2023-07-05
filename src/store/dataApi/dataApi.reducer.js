@@ -47,7 +47,6 @@ export const datasReducer = (state = DATAS_INTIAL_STATE, action = {}) => {
 		case DATA_API_ACTION_TYPES.FETCH_DETAIL_SUCCESS:
 			return {
 				...state,
-				isLoading: false,
 				detail: payload.detail,
 			};
 		case DATA_API_ACTION_TYPES.FETCH_CAST_SUCCESS:

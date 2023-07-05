@@ -23,14 +23,6 @@ const App = () => {
 };
 
 function Root() {
-	/* @audit-info :
-		- search kaya shinigami.id
-			- searchnya pake quarey search
-		- list
-			- genre filter
-		-img
-			- cari image default landscape dan potrait
-	*/
 	return (
 		<Routes>
 			<Route path="/" element={<Home />} />
