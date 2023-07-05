@@ -8,7 +8,8 @@ import ImgDefault from "../../assets/imgs/img-hero.jpg";
 import {
 	detailData,
 	directingArr,
-	loadingDatas,
+	loadingCast,
+	loadingDetail,
 	writerArr,
 } from "../../store/dataApi/dataApi.selector";
 import LoadingSection from "../../components/loadingSection/loadingSection.component";
@@ -22,8 +23,8 @@ const Detail = () => {
 	const detail = useSelector(detailData);
 	const writer = useSelector(writerArr);
 	const directing = useSelector(directingArr);
-	const isLoading = useSelector(loadingDatas);
-	// console.log(detail);
+	const isLoadingDetail = useSelector(loadingDetail);
+	const isLoadingCast = useSelector(loadingCast);
 
 	useEffect(() => {
 		dispatch(fetchDetailStartAsyncs(type, id));
@@ -35,11 +36,9 @@ const Detail = () => {
 
 	return (
 		<>
-			{isLoading ? (
+			{isLoadingDetail && isLoadingCast ? (
 				<LoadingSection />
 			) : (
-				// <>
-				// 	{detail && writer && directing && (
 				<div
 					className="detail-container"
 					style={{
@@ -87,8 +86,6 @@ const Detail = () => {
 					</div>
 				</div>
 			)}
-			{/* </>
-			)} */}
 		</>
 	);
 };

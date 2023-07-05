@@ -18,7 +18,7 @@ const List = () => {
 	const [selectedType, setSelectedType] = useState("");
 	const [selectedGenre, setSelectedGenre] = useState("");
 	const [selectedSort, setSelectedSort] = useState("");
-	const isLoading = useSelector(loadingDatas);
+	const isLoadingData = useSelector(loadingDatas);
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -56,7 +56,11 @@ const List = () => {
 					setSelectedSort={setSelectedSort}
 					applyFilter={handelFilterResult}
 				/>
-				{isLoading ? <LoadingSection /> : <ContentList type={selectedType} />}
+				{isLoadingData ? (
+					<LoadingSection />
+				) : (
+					<ContentList type={selectedType} />
+				)}
 
 				<Pagination
 					selectedType={selectedType}

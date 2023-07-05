@@ -4,33 +4,48 @@ import { createAction } from "../../utils/reducer.utils";
 import apiBaseUrl from "../api/apiBaseUrl";
 
 export const fetchDataStart = () =>
-	createAction(DATA_API_ACTION_TYPES.FETCH_START);
+	createAction(DATA_API_ACTION_TYPES.FETCH_DATAS_START);
 
 export const fetchDataSuccess = (datasArr) =>
 	createAction(DATA_API_ACTION_TYPES.FETCH_DATAS_SUCCESS, {
 		data: datasArr.data,
 	});
+//
+export const fetchMovieStart = () =>
+	createAction(DATA_API_ACTION_TYPES.FETCH_MOVIE_START);
 
 export const fetchMovieSuccess = (movieArr) =>
 	createAction(DATA_API_ACTION_TYPES.FETCH_MOVIE_SUCCESS, {
 		movie: movieArr.data,
 	});
 
+//
+export const fetchTvStart = () =>
+	createAction(DATA_API_ACTION_TYPES.FETCH_TV_START);
 export const fetchTvSuccess = (tvArr) =>
 	createAction(DATA_API_ACTION_TYPES.FETCH_TV_SUCCESS, {
 		tv: tvArr.data,
 	});
 
+//
+export const fetchDetailStart = () =>
+	createAction(DATA_API_ACTION_TYPES.FETCH_DETAIL_START);
 export const fetchDetailSuccess = (detail) =>
 	createAction(DATA_API_ACTION_TYPES.FETCH_DETAIL_SUCCESS, {
 		detail: detail.data,
 	});
 
+//
+export const fetchCrewStart = () =>
+	createAction(DATA_API_ACTION_TYPES.FETCH_CAST_START);
 export const fetechCrewSuccess = (crewArr) =>
 	createAction(DATA_API_ACTION_TYPES.FETCH_CAST_SUCCESS, {
 		cast: crewArr.data,
 	});
 
+//
+export const fetchSearchStart = () =>
+	createAction(DATA_API_ACTION_TYPES.FETCH_SEARCH_START);
 export const fetchSearchSuccess = (searchArr) =>
 	createAction(DATA_API_ACTION_TYPES.FETCH_SEARCH_SUCCESS, {
 		searchResult: searchArr.data,
@@ -168,7 +183,7 @@ export const fetchDataStartAsync = (type, page, sort, genres) => {
 
 export const fetchMovieStartAsyncs = () => {
 	return async (dispatch) => {
-		dispatch(fetchDataStart());
+		dispatch(fetchMovieStart());
 		try {
 			const movieArr = await apiBaseUrl.get(`/movie/now_playing`, {
 				params: {
@@ -185,7 +200,7 @@ export const fetchMovieStartAsyncs = () => {
 
 export const fetchTvStartAsyncs = () => {
 	return async (dispatch) => {
-		dispatch(fetchDataStart());
+		dispatch(fetchTvStart());
 		try {
 			const tvArr = await apiBaseUrl.get(`/tv/airing_today`, {
 				params: {
@@ -202,7 +217,8 @@ export const fetchTvStartAsyncs = () => {
 
 export const fetchDetailStartAsyncs = (type, id) => {
 	return async (dispatch) => {
-		dispatch(fetchDataStart());
+		dispatch(fetchDetailStart());
+		dispatch(fetchCrewStart());
 		try {
 			const details = await apiBaseUrl.get(`/${type}/${id}`, {
 				params: {
@@ -226,7 +242,7 @@ export const fetchDetailStartAsyncs = (type, id) => {
 
 export const fetchSearchStartAsyncs = (query) => {
 	return async (dispatch) => {
-		dispatch(fetchDataStart());
+		dispatch(fetchSearchStart());
 		try {
 			const searchResult = await apiBaseUrl.get(`/search/multi`, {
 				params: {

@@ -38,6 +38,26 @@ export const totalPageData = createSelector(
 
 export const loadingDatas = createSelector(
 	[selectDatas],
-	(datas) => datas.isLoading
+	(datas) => datas.isLoadingData
+);
+export const loadingMovie = createSelector(
+	[selectDatas],
+	(datas) => datas.isLoadingMovie
+);
+export const loadingTV = createSelector(
+	[selectDatas],
+	(datas) => datas.isLoadingTv
+);
+export const loadingDetail = createSelector(
+	[selectDatas],
+	(datas) => datas.isLoadingDetail
+);
+export const loadingCast = createSelector(
+	[selectDatas],
+	(datas) => datas.isLoadingCast
+);
+export const loadingSearch = createSelector(
+	[selectDatas],
+	(datas) => datas.isLoadingSearch
 );
 export const errorDatas = createSelector([selectDatas], (datas) => datas.error);

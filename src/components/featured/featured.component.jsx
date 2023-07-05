@@ -1,11 +1,19 @@
 import { useSelector } from "react-redux";
 import FeaturedItem from "../featuredItem/featuredItem.component";
 import "./featured.style.scss";
-import { movieData, tvData } from "../../store/dataApi/dataApi.selector";
+import {
+	loadingMovie,
+	loadingTV,
+	movieData,
+	tvData,
+} from "../../store/dataApi/dataApi.selector";
 
 const Featured = () => {
 	const movies = useSelector(movieData);
 	const tv = useSelector(tvData);
+
+	const isLoadingMovie = useSelector(loadingMovie);
+	const isLoadingTV = useSelector(loadingTV);
 
 	return (
 		<div className="featured">
@@ -13,13 +21,21 @@ const Featured = () => {
 				<p className="titleFeatured">
 					Movie <span>/ now playing</span>
 				</p>
-				<FeaturedItem datas={movies} type={"movie"} />
+				{isLoadingMovie ? (
+					<p>Loading...</p>
+				) : (
+					<FeaturedItem datas={movies} type={"movie"} />
+				)}
 			</div>
 			<div className="featuredTv">
 				<p className="titleFeatured">
 					TV <span>/ on the air</span>
 				</p>
-				<FeaturedItem datas={tv} type={"tv"} />
+				{isLoadingTV ? (
+					<p>Loading...</p>
+				) : (
+					<FeaturedItem datas={tv} type={"tv"} />
+				)}
 			</div>
 		</div>
 	);

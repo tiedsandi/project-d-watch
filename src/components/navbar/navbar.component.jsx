@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSearchStartAsyncs } from "../../store/dataApi/dataApi.action";
 import {
-	loadingDatas,
+	loadingSearch,
 	resultSearchArr,
 } from "../../store/dataApi/dataApi.selector";
 
@@ -16,7 +16,7 @@ const Navbar = ({ center }) => {
 
 	const dispatch = useDispatch();
 	const searchResults = useSelector(resultSearchArr);
-	// const isLoading = useSelector(loadingDatas);
+	const isLoadingSearch = useSelector(loadingSearch);
 	const handleSearchQuery = (quarey) => {
 		setSearch(quarey);
 		dispatch(fetchSearchStartAsyncs(search));
@@ -33,9 +33,6 @@ const Navbar = ({ center }) => {
 
 		return (
 			<div className="search-results">
-				{/* {isLoading ? (
-					<p>Loading...</p>
-				) : ( */}
 				<ul>
 					{searchResults.map((data) => (
 						<a href={`/${data.media_type}/${data.id}`} key={data.id}>
@@ -43,7 +40,6 @@ const Navbar = ({ center }) => {
 						</a>
 					))}
 				</ul>
-				{/* )} */}
 			</div>
 		);
 	};
@@ -65,11 +61,11 @@ const Navbar = ({ center }) => {
 						icon={Lup}
 					/>
 					<ul>
-						{/* {isLoading ? (
+						{isLoadingSearch ? (
 							<p className="no-results">Loading...</p>
-						) : ( */}
-						{renderSearchResults()}
-						{/* )} */}
+						) : (
+							renderSearchResults()
+						)}
 					</ul>
 				</div>
 			</div>
