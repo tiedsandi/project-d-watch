@@ -14,17 +14,45 @@ const Filter = ({
 	applyFilter,
 }) => {
 	const types = ["movie", "tv"];
-	const genres = ["Action", "Adventure", "Comedy", "Drama", "Fantasy"];
+	const genresMV = [
+		"Action",
+		"Adventure",
+		"Animation",
+		"Comedy",
+		"Drama",
+		"Family",
+		"Fantasy",
+		"Horror",
+		"Mystery",
+		"Romance",
+		"Science Fiction",
+	];
+	const genresTV = [
+		"Action & Adventure",
+		"Animation",
+		"Crime",
+		"Comedy",
+		"Drama",
+		"Family",
+		"Kids",
+		"Mystery",
+		"Reality",
+		"Sci-Fi & Fantasy",
+		"War & Politic",
+	];
 	const sortMV = ["Popular", "Top rated", "Now Playing", "Upcoming"];
 	const sortTV = ["Popular", "Top rated", "On The Air", "Airing Today"];
 
 	const [sortOptions, setSortOptions] = useState(sortMV);
+	const [genresOptions, setGenresOptions] = useState(genresMV);
 
 	useEffect(() => {
 		if (selectedType === "movie") {
 			setSortOptions(sortMV);
+			setGenresOptions(genresMV);
 		} else if (selectedType === "tv") {
 			setSortOptions(sortTV);
+			setGenresOptions(genresTV);
 		}
 	}, [selectedType]);
 
@@ -53,7 +81,7 @@ const Filter = ({
 
 				<Dropdown
 					label="Genre"
-					options={genres}
+					options={genresOptions}
 					onSelect={handleGenreSelect}
 					isNull
 					selectedOption={selectedGenre}

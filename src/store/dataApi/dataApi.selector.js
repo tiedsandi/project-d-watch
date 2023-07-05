@@ -22,6 +22,10 @@ export const directingArr = createSelector([selectDatas], (data) =>
 	data.cast.filter((crew) => crew.known_for_department === "Directing")
 );
 
+export const resultSearchArr = createSelector([selectDatas], (data) =>
+	data.searchResult.slice(0, 10)
+);
+
 export const pageData = createSelector(
 	[selectDatas],
 	(data) => data.currentPage

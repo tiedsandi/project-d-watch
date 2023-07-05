@@ -31,6 +31,11 @@ export const fetechCrewSuccess = (crewArr) =>
 		cast: crewArr.data,
 	});
 
+export const fetchSearchSuccess = (searchArr) =>
+	createAction(DATA_API_ACTION_TYPES.FETCH_SEARCH_SUCCESS, {
+		searchResult: searchArr.data,
+	});
+
 export const fetchDataFailed = (error) =>
 	createAction(DATA_API_ACTION_TYPES.FETCH_FAILED, error);
 
@@ -59,9 +64,88 @@ export const fetchDataStartAsync = (type, page, sort, genres) => {
 			break;
 	}
 
-	let genreIds;
-	if (genres != null) {
-		genreIds = genres.join(",");
+	// let genreIds;
+	// if (genres != null) {
+	// 	genreIds = genres.join(",");
+	// }
+
+	let genreIds = 0;
+	switch (genres) {
+		case "Action & Adventure":
+			genreIds = 10759;
+			break;
+		case "Crime":
+			genreIds = 80;
+			break;
+		case "Kids":
+			genreIds = 10762;
+			break;
+		case "Reality":
+			genreIds = 10764;
+			break;
+		case "Sci-Fi & Fantasy":
+			genreIds = 10765;
+			break;
+		case "War & Politic":
+			genreIds = 10768;
+			break;
+		case "Action":
+			genreIds = 28;
+			break;
+		case "Adventure":
+			genreIds = 12;
+			break;
+		case "Animation":
+			genreIds = 16;
+			break;
+		case "Comedy":
+			genreIds = 35;
+			break;
+		// case "Crime":
+		// 	genreIds = 80;
+		// 	break;
+		case "Drama":
+			genreIds = 99;
+			break;
+		case "Family":
+			genreIds = 18;
+			break;
+		case "Fantasy":
+			genreIds = 10751;
+			break;
+		// case "History":
+		// 	genreIds = 36;
+		// 	break;
+		case "Horror":
+			genreIds = 27;
+			break;
+		// case "Music":
+		// 	genreIds = 10402;
+		// 	break;
+		case "Mystery":
+			genreIds = 9648;
+			break;
+		case "Romance":
+			genreIds = 10749;
+			break;
+		case "Science Fiction":
+			genreIds = 878;
+			break;
+		// case "TV Movie":
+		// 	genreIds = 10770;
+		// 	break;
+		// case "Thriller":
+		// 	genreIds = 53;
+		// 	break;
+		// case "War":
+		// 	genreIds = 10752;
+		// 	break;
+		// case "Western":
+		// 	genreIds = 37;
+		// 	break;
+		default:
+			genreIds = "";
+			break;
 	}
 
 	return async (dispatch) => {
@@ -134,6 +218,24 @@ export const fetchDetailStartAsyncs = (type, id) => {
 			});
 			dispatch(fetchDetailSuccess(details));
 			dispatch(fetechCrewSuccess(crewArr));
+		} catch (error) {
+			dispatch(fetchDataFailed(error));
+		}
+	};
+};
+
+export const fetchSearchStartAsyncs = (query) => {
+	return async (dispatch) => {
+		dispatch(fetchDataStart());
+		try {
+			const searchResult = await apiBaseUrl.get(`/search/multi`, {
+				params: {
+					api_key: "b0039237e6e50a87fc14ce83712d689e",
+					query: query,
+					language: "en-US",
+				},
+			});
+			dispatch(fetchSearchSuccess(searchResult));
 		} catch (error) {
 			dispatch(fetchDataFailed(error));
 		}

@@ -7,6 +7,7 @@ export const DATAS_INTIAL_STATE = {
 	isLoading: false,
 	detail: {},
 	cast: [],
+	searchResult: [],
 	error: null,
 	currentPage: 1,
 	totalPage: 500,
@@ -54,6 +55,12 @@ export const datasReducer = (state = DATAS_INTIAL_STATE, action = {}) => {
 				...state,
 				isLoading: false,
 				cast: payload.cast.crew,
+			};
+		case DATA_API_ACTION_TYPES.FETCH_SEARCH_SUCCESS:
+			return {
+				...state,
+				isLoading: false,
+				searchResult: payload.searchResult.results,
 			};
 		case DATA_API_ACTION_TYPES.FETCH_FAILED:
 			return {

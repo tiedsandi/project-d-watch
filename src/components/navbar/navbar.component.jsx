@@ -4,19 +4,22 @@ import Lup from "../../assets/icons/Search.svg";
 import InputComponent from "../input/input.component";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSearchStartAsyncs } from "../../store/dataApi/dataApi.action";
+import {
+	loadingDatas,
+	resultSearchArr,
+} from "../../store/dataApi/dataApi.selector";
 
 const Navbar = ({ center }) => {
 	const [search, setSearch] = useState("");
 
-	const [searchResults, setSearchResults] = useState([]);
-	const dummyData = ["Apple", "Banana", "Orange", "Pear"];
-
+	const dispatch = useDispatch();
+	const searchResults = useSelector(resultSearchArr);
+	// const isLoading = useSelector(loadingDatas);
 	const handleSearchQuery = (quarey) => {
 		setSearch(quarey);
-		const results = dummyData.filter((item) =>
-			item.toLowerCase().includes(quarey.toLowerCase())
-		);
-		setSearchResults(results);
+		dispatch(fetchSearchStartAsyncs(search));
 	};
 
 	const renderSearchResults = () => {
@@ -30,11 +33,17 @@ const Navbar = ({ center }) => {
 
 		return (
 			<div className="search-results">
+				{/* {isLoading ? (
+					<p>Loading...</p>
+				) : ( */}
 				<ul>
-					{searchResults.map((result) => (
-						<li key={result}>{result}</li>
+					{searchResults.map((data) => (
+						<a href={`/${data.media_type}/${data.id}`} key={data.id}>
+							<li>{data.title || data.name}</li>
+						</a>
 					))}
 				</ul>
+				{/* )} */}
 			</div>
 		);
 	};
@@ -55,7 +64,13 @@ const Navbar = ({ center }) => {
 						onChange={handleSearchQuery}
 						icon={Lup}
 					/>
-					<ul>{renderSearchResults()}</ul>
+					<ul>
+						{/* {isLoading ? (
+							<p className="no-results">Loading...</p>
+						) : ( */}
+						{renderSearchResults()}
+						{/* )} */}
+					</ul>
 				</div>
 			</div>
 		</div>

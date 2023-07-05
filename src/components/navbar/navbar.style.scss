@@ -48,6 +48,14 @@
 				border-bottom: 1px solid #ddd;
 			}
 		}
+
+		a {
+			color: $bodyBgColor;
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 
 	.no-results {

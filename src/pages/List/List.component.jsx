@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
 import ContentList from "../../components/contentList/contentList.component";
@@ -11,11 +11,14 @@ import Pagination from "../../components/pagination/pagination.component";
 import "./list.style.scss";
 
 import { fetchDataStartAsync } from "../../store/dataApi/dataApi.action";
+import { loadingDatas } from "../../store/dataApi/dataApi.selector";
+import LoadingSection from "../../components/loadingSection/loadingSection.component";
 
 const List = () => {
 	const [selectedType, setSelectedType] = useState("");
 	const [selectedGenre, setSelectedGenre] = useState("");
 	const [selectedSort, setSelectedSort] = useState("");
+	const isLoading = useSelector(loadingDatas);
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -32,11 +35,11 @@ const List = () => {
 		setSelectedGenre(genre);
 		setSelectedSort(sort);
 
-		dispatch(fetchDataStartAsync(type, page, sort));
+		dispatch(fetchDataStartAsync(type, page, sort, genre));
 	}, [filter]);
 
 	const handelFilterResult = () => {
-		dispatch(fetchDataStartAsync(selectedType, 1, selectedSort));
+		dispatch(fetchDataStartAsync(selectedType, 1, selectedSort, selectedGenre));
 		navigate(`/list/${selectedType}-${selectedGenre}-${selectedSort}-1`);
 	};
 
@@ -53,7 +56,8 @@ const List = () => {
 					setSelectedSort={setSelectedSort}
 					applyFilter={handelFilterResult}
 				/>
-				<ContentList type={selectedType} />
+				{isLoading ? <LoadingSection /> : <ContentList type={selectedType} />}
+
 				<Pagination
 					selectedType={selectedType}
 					selectedGenre={selectedGenre}

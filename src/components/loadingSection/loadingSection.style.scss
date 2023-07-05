@@ -1,0 +1,7 @@
+@use "../../scss/" as *;
+
+#loading {
+	display: grid;
+	place-items: center;
+	height: 100vh;
+}
