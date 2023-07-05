@@ -69,7 +69,9 @@ const Detail = () => {
 									<div className="detail-group left">
 										<h2 className="detail-heading">Genre</h2>
 										<h3 className="detail-subheading">
-											{detail.genres.length > 0 ? detail.genres[0].name : "-"}
+											{detail.genres && detail.genres.length > 0
+												? detail.genres[0].name
+												: "-"}
 										</h3>
 									</div>
 									<div className="detail-group right">

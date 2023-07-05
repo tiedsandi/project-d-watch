@@ -36,8 +36,8 @@ export const fetchDetailSuccess = (detail) =>
 	});
 
 //
-export const fetchCrewStart = () =>
-	createAction(DATA_API_ACTION_TYPES.FETCH_CAST_START);
+// export const fetchCrewStart = () =>
+// 	createAction(DATA_API_ACTION_TYPES.FETCH_CAST_START);
 export const fetechCrewSuccess = (crewArr) =>
 	createAction(DATA_API_ACTION_TYPES.FETCH_CAST_SUCCESS, {
 		cast: crewArr.data,
@@ -228,7 +228,6 @@ export const fetchTvStartAsyncs = () => {
 export const fetchDetailStartAsyncs = (type, id) => {
 	return async (dispatch) => {
 		dispatch(fetchDetailStart());
-		dispatch(fetchCrewStart());
 		try {
 			const details = await apiBaseUrl.get(`/${type}/${id}`, {
 				params: {
@@ -242,8 +241,9 @@ export const fetchDetailStartAsyncs = (type, id) => {
 					language: "en-US",
 				},
 			});
-			dispatch(fetchDetailSuccess(details));
-			dispatch(fetechCrewSuccess(crewArr));
+			const [data1, data2] = await Promise.all([details, crewArr]);
+			dispatch(fetchDetailSuccess(data1));
+			dispatch(fetechCrewSuccess(data2));
 		} catch (error) {
 			dispatch(fetchDataFailed(error));
 		}

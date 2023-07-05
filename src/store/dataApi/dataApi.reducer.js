@@ -11,7 +11,7 @@ export const DATAS_INTIAL_STATE = {
 	isLoadingMovie: false,
 	isLoadingTv: false,
 	isLoadingDetail: false,
-	isLoadingCast: false,
+	// isLoadingCast: false,
 	isLoadingSearch: false,
 	error: null,
 	currentPage: 1,
@@ -78,15 +78,10 @@ export const datasReducer = (state = DATAS_INTIAL_STATE, action = {}) => {
 			};
 
 		// CAST API
-		case DATA_API_ACTION_TYPES.FETCH_CAST_START:
-			return {
-				...state,
-				isLoadingCast: true,
-			};
 		case DATA_API_ACTION_TYPES.FETCH_CAST_SUCCESS:
 			return {
 				...state,
-				isLoadingCast: false,
+				isLoadingDetail: false,
 				cast: payload.cast.crew,
 			};
 
