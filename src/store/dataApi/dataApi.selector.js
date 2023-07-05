@@ -52,10 +52,10 @@ export const loadingDetail = createSelector(
 	[selectDatas],
 	(datas) => datas.isLoadingDetail
 );
-export const loadingCast = createSelector(
-	[selectDatas],
-	(datas) => datas.isLoadingCast
-);
+// export const loadingCast = createSelector(
+// 	[selectDatas],
+// 	(datas) => datas.isLoadingCast
+// );
 export const loadingSearch = createSelector(
 	[selectDatas],
 	(datas) => datas.isLoadingSearch

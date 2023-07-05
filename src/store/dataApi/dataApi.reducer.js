@@ -78,6 +78,11 @@ export const datasReducer = (state = DATAS_INTIAL_STATE, action = {}) => {
 			};
 
 		// CAST API
+		// case DATA_API_ACTION_TYPES.FETCH_CAST_START:
+		// 	return {
+		// 		...state,
+		// 		isLoadingCast: true,
+		// 	};
 		case DATA_API_ACTION_TYPES.FETCH_CAST_SUCCESS:
 			return {
 				...state,

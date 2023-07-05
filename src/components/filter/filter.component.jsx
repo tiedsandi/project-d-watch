@@ -61,9 +61,7 @@ const Filter = ({
 	};
 
 	const handleGenreSelect = (genre) => {
-		if (sortMV.includes(genre)) {
-			setSelectedGenre(genre);
-		} else setSelectedGenre("");
+		setSelectedGenre(genre);
 	};
 
 	const handleSortSelect = (sort) => {
