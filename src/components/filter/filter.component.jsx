@@ -15,6 +15,7 @@ const Filter = ({
 }) => {
 	const types = ["movie", "tv"];
 	const genresMV = [
+		"All",
 		"Action",
 		"Adventure",
 		"Animation",
@@ -28,6 +29,7 @@ const Filter = ({
 		"Science Fiction",
 	];
 	const genresTV = [
+		"All",
 		"Action & Adventure",
 		"Animation",
 		"Crime",
@@ -87,7 +89,6 @@ const Filter = ({
 					label="Genre"
 					options={genresOptions}
 					onSelect={handleGenreSelect}
-					isNull
 					selectedOption={selectedGenre}
 				/>
 
