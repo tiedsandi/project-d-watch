@@ -9,7 +9,7 @@ const Footer = () => {
 		<div className="footer">
 			<div className="logoFooter">
 				<Logo className="logo" />
-				D'Reviews
+				D'Watch
 			</div>
 			<ul className="socialMediaLink">
 				<a href="http://google.com" target="_blank" rel="noreferrer">

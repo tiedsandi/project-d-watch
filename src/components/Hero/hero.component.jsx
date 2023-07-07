@@ -24,7 +24,7 @@ const Hero = () => {
 			</div>
 			<div className="textHero">
 				<h1 className="title">
-					D`Reviews: Unraveling the Magic of Films and TV Series.
+					D'Watch: Unraveling the Magic of Films and TV Series.
 				</h1>
 				<h5 className="subTitle">
 					Exploring In-Depth Reviews, Insights, and Recommendations
