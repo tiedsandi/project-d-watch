@@ -12,7 +12,11 @@ const Footer = () => {
 				D'Watch
 			</div>
 			<ul className="socialMediaLink">
-				<a href="http://google.com" target="_blank" rel="noreferrer">
+				<a
+					href="https://www.linkedin.com/in/fachran-s-77b450114/"
+					target="_blank"
+					rel="noreferrer"
+				>
 					<li className="linkedIn">
 						<img
 							src={li}
@@ -22,7 +26,11 @@ const Footer = () => {
 						/>
 					</li>
 				</a>
-				<a href="http://google.com" target="_blank" rel="noreferrer">
+				<a
+					href="https://github.com/tiedsandi/d-watch"
+					target="_blank"
+					rel="noreferrer"
+				>
 					<li className="sourceCode">
 						<img
 							src={gh}
@@ -32,7 +40,11 @@ const Footer = () => {
 						/>
 					</li>
 				</a>
-				<a href="http://google.com" target="_blank" rel="noreferrer">
+				<a
+					href="https://www.figma.com/file/4CAuFdQyfWRGAojPScFsto/D'Watch?type=design&node-id=314-5014&mode=design&t=aJPWJrazC0GvHLz0-0"
+					target="_blank"
+					rel="noreferrer"
+				>
 					<li className="design">
 						<img
 							src={fg}
@@ -44,7 +56,8 @@ const Footer = () => {
 				</a>
 			</ul>
 			<p>
-				Made with Love by <a href="http://googe.com">Fachran Sandi</a>{" "}
+				Made with Love by{" "}
+				<a href="https://fachran-sandi.netlify.app/">Fachran Sandi</a>{" "}
 			</p>
 		</div>
 	);
